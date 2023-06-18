@@ -1,6 +1,6 @@
 Linear Programming Calculator - ReadMe
 
-      linear-programming-calculatorThe Linear Programming Calculator is a program that calculates the optimal solution 
+      The Linear Programming Calculator is a program that calculates the optimal solution 
       in linear programming using the Simplex method. It also provides the option to calculate the dual form of the problem. 
       This ReadMe file provides an overview of the program and instructions on how to use it effectively.
 
