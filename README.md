@@ -75,7 +75,7 @@ Linear Programming Calculator - ReadMe
       КОНТРОЛЬНІ ПРИКЛАДИ
 
 Приклад №1, пряма задача, існуючий і додатній розв'язок:
-![Screenshot](img.png)
+![Screenshot](images/img.png)
  
 Приклад №2, двоїста задача, існуючий і додатній розв'язок:
 
