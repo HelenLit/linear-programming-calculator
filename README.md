@@ -75,44 +75,75 @@ Linear Programming Calculator - ReadMe
       КОНТРОЛЬНІ ПРИКЛАДИ
 
 Приклад №1, пряма задача, існуючий і додатній розв'язок:
+
 ![Screenshot](images/img.png)
+
+![Screenshot](images/img_1.png)
+
+![Screenshot](images/img_2.png)
+
+![Screenshot](images/img_3.png)
  
 Приклад №2, двоїста задача, існуючий і додатній розв'язок:
 
- 
+![Screenshot](images/img_4.png)
 
- 
- 
+![Screenshot](images/img_5.png)
+
+![Screenshot](images/img_6.png)
+
 
 Результат у SimplexWin:
- 
+
+![Screenshot](images/img_7.png)
+
 
 Приклад №3, пряма задача, існуючий і від'ємний розв'язок:
  
- 
- 
+![Screenshot](images/img_8.png)
 
+![Screenshot](images/img_9.png)
 
+![Screenshot](images/img_10.png)
+
+![Screenshot](images/img_11.png)
+ 
 
 Приклад №4, пряма задача, неіснючий розв'язок, виняток "Необмежений розв'язок":
  
- 
- 
+![Screenshot](images/img_12.png)
+
+![Screenshot](images/img_13.png)
+
+![Screenshot](images/img_14.png)
+
 
 Приклад №5, пряма задача, неіснючий розв'язок, виняток "Неможливий розв'язок":
  
- 
+![Screenshot](images/img_15.png)
 
-Приклад №5, пряма задача, неіснючий розв'язок, виняток "Неправильно введені дані":
+![Screenshot](images/img_16.png)
 
- 
+
+Приклад №6, пряма задача, неіснючий розв'язок, виняток "Неправильно введені дані":
+
+![Screenshot](images/img_17.png)
+
+![Screenshot](images/img_18.png)
  
 
 Кнопка “Open ReadMe” у верхньому меню:
- 
- 
+
+![Screenshot](images/img_19.png)
+
 
 Кнопка “About” у верхньому меню:
+
+![Screenshot](images/img_20.png)
+
+![Screenshot](images/img_21.png)
+
+
  
  
 
