@@ -1,31 +1,13 @@
-// Copyright 2009 Google Inc.
-
-/*
- * Licensed to the Apache Software Foundation (ASF) under one or more
- * contributor license agreements.  See the NOTICE file distributed with
- * this work for additional information regarding copyright ownership.
- * The ASF licenses this file to You under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with
- * the License.  You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-package org.apache.commons.math.optimization;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+package org.example.Simplex;
 
 import org.apache.commons.math.linear.RealMatrix;
 import org.apache.commons.math.linear.RealMatrixImpl;
 import org.apache.commons.math.linear.RealVector;
+import org.apache.commons.math.optimization.GoalType;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 /**
  * A tableau for use in the Simplex method.
@@ -49,16 +31,16 @@ import org.apache.commons.math.linear.RealVector;
  * 
  * @author <a href="http://www.benmccann.com">Ben McCann</a>
  */
-class SimplexTableau {
+public class SimplexTableau {
 
-  protected RealMatrix tableau;
+  public RealMatrix tableau;
   protected final boolean nonNegative;
   protected final int numDecisionVariables;
   protected final int numSlackVariables;
   protected int numArtificialVariables;
 
   SimplexTableau(LinearModel model) {
-    this(model, false);
+    this(model, true);
   }
   
   SimplexTableau(LinearModel model, boolean restrictToNonNegative) {
@@ -89,7 +71,7 @@ class SimplexTableau {
       matrix[0][0] = -1;
     }
     int zIndex = getNumObjectiveFunctions() == 1 ? 0 : 1;
-    boolean maximize = objectiveFunction.getGoalType() == GoalType.MAXIMIZE;    
+    boolean maximize = objectiveFunction.getGoalType() == GoalType.MAXIMIZE;
     matrix[zIndex][zIndex] = maximize ? 1 : -1;
     RealVector objectiveCoefficients = maximize
         ? model.getObjectiveFunction().getCoefficients().mapMultiply(-1)

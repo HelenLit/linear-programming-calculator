@@ -1,42 +1,16 @@
-// Copyright 2009 Google Inc.
+package org.example.Simplex;
 
-/*
- * Licensed to the Apache Software Foundation (ASF) under one or more
- * contributor license agreements.  See the NOTICE file distributed with
- * this work for additional information regarding copyright ownership.
- * The ASF licenses this file to You under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with
- * the License.  You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+import org.apache.commons.math.optimization.GoalType;
 
-package org.apache.commons.math.optimization;
+import java.util.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
-/**
- * A model for linear optimization.
- * 
- * @author <a href="http://www.benmccann.com">Ben McCann</a>
- */
 public class LinearModel {
 
   private final LinearObjectiveFunction objectiveFunction;
   private final List<LinearEquation> constraints;
   
-  /**
-   * @param numVariables The number of decision variables in the model.
-   */
+
   public LinearModel(LinearObjectiveFunction objectiveFunction) {
     this.objectiveFunction = objectiveFunction;
     this.constraints = new ArrayList<LinearEquation>();
@@ -102,6 +76,53 @@ public class LinearModel {
       counts.put(constraint.getRelationship(), counts.get(constraint.getRelationship()) + 1);
     }
     return counts;
+  }
+
+  public void convertAllTo(Relationship relationship){
+    for (int i = 0; i < constraints.size(); i++) {
+      if(constraints.get(i).getRelationship().compareTo(relationship)!=0){
+        double[] leftSide = Arrays.stream(constraints.get(i).getCoefficients().getData()).map(e->-1*e).toArray();
+        double rightSide = -1*constraints.get(i).getRightHandSide();
+        constraints.set(i,new LinearEquation(leftSide,relationship,rightSide));
+      }
+    }
+  }
+  public LinearModel dualForm(){
+    double[] coefArray = constraints.stream().mapToDouble(LinearEquation::getRightHandSide).toArray();
+    LinearModel resultModel = new LinearModel(
+            new LinearObjectiveFunction(coefArray, 0, oppositeGoal(objectiveFunction.getGoalType()))
+    );
+    for (int i = 0; i<objectiveFunction.getCoefficients().getDimension(); i++){
+      double[] leftSide = createLeftSide(i);
+      double rightSide;
+      try{
+        rightSide = objectiveFunction.getCoefficients().getEntry(i);
+      }catch (ArrayIndexOutOfBoundsException e){
+        rightSide = 0.0;
+
+      }
+
+      Relationship rel = constraints.get(i).getRelationship().oppositeRelationship();
+      resultModel.addConstraint(new LinearEquation(leftSide, rel, rightSide));
+    }
+    return resultModel;
+  }
+  private GoalType oppositeGoal(GoalType goalType){
+    if (goalType == GoalType.MAXIMIZE)
+      return GoalType.MINIMIZE;
+    else
+      return GoalType.MAXIMIZE;
+  }
+  private double[] createLeftSide(int i){
+    return constraints.stream().mapToDouble(e->{
+      double result;
+      try{
+        result = e.getCoefficients().getEntry(i);
+      } catch (ArrayIndexOutOfBoundsException ex){
+        result = 1.0;
+      }
+      return result;
+    }).toArray();
   }
   
 }

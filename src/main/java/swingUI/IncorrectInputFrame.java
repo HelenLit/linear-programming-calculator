@@ -5,13 +5,13 @@ import java.awt.*;
 
 public class IncorrectInputFrame extends JFrame {
     public IncorrectInputFrame(){
-    setTitle("Uncorrect input exception");
+    setTitle("Incorrect input exception");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
     setSize(300, 200);
     setLocationRelativeTo(null);
 
     StringBuilder sb = new StringBuilder();
-        sb.append("Found exceptional situation:\n\nThis solution is unbounded.");
+        sb.append("Found exceptional situation:\n\nIncorrect input, try again.");
 
     JTextArea solutionText = new JTextArea(sb.toString());
         solutionText.setEditable(false);

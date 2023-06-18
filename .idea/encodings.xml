@@ -2,6 +2,16 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/Simplex" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/Simplex/LinearEquation.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/Simplex/LinearModel.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/Simplex/LinearObjectiveFunction.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/Simplex/NoFeasibleSolutionException.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/Simplex/Relationship.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/Simplex/SimplexSolverTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/Simplex/SimplexTableau.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/Simplex/SimplexTableauTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/Simplex/UnboundedSolutionException.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
   </component>
 </project>
