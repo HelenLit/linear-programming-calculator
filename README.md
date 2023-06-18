@@ -144,6 +144,3 @@ Linear Programming Calculator - ReadMe
 ![Screenshot](images/img_21.png)
 
 
- 
- 
-
